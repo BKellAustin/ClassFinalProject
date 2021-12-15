@@ -1,0 +1,388 @@
+* {box-sizing: border-box}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: right;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+body { background-color: #fcfdfc;
+    color:#000000;
+    font-family: 'Ropa Sans', sans-serif;
+    font-size: 120% ;
+    background: #fcfdfc; 
+    }
+
+h1       { background-color: #237753; 
+color: #000000; text-align: center;
+line-height: 200%;
+font-family: 'Ropa Sans', sans-serif;
+font-size: 200% ;
+}
+
+nav        
+ {text-align: right;
+  font-weight: bold;
+  padding-left: 3em;
+  padding-right: 2em;
+  text-decoration: none;
+  text-indent: 10%;
+  
+ 
+}  
+
+h2{
+text-align: center;
+    padding-left: 3em;
+    padding-right: 2em;
+    color: #283836;
+    font-weight: bold;
+    font-family: 'Ropa Sans', sans-serif;
+    font-size: 30px;
+}
+
+
+h3 { 
+font-size: 1.2em;
+padding-left: 3em;
+padding-right: 2em;
+padding-bottom: .25em;
+}
+
+
+h4 { 
+font-size: 1.2em;
+padding-left: 3em;
+padding-right: 2em;
+padding-bottom: .25em;
+}
+
+
+
+/* Add padding to containers */
+.container {
+  padding: 10px;
+}
+
+form {  
+ width: 30%;  
+ margin: 60px auto;  
+ background: #d3e7e1;  
+ padding: 60px 120px 80px 120px;  
+ text-align: center;  
+-webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1); 
+box-shadow: 2px 2px 3px rgba(0,0,0,0.1); 
+
+} 
+
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 15px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: #237753;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 75%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: solid;
+  background: #f1f1f1;
+  
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px 15px;
+  margin: 5px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: #000000;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+/* Add a blue text color to links */
+a {
+  color: #000000;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+
+
+footer   { background-color: #28632d; 
+color: #221811;
+font-size: .60em;
+font-style: italic;
+text-align: right;    }                    
+#wrapper { width: 80%;
+margin: auto;
+margin: auto;}
+table    {margin: auto;
+border: 5px solid #000066;
+width: 90%;
+border-spacing: 0px;
+
+}
+td, th {padding: 10px;}
+tr:nth-of-type(odd) { background-color: #D2B48E; 
+}
+.details {padding-left:5%;
+padding-right:10%;
+overflow: auto;
+}
+form     {padding: 2em;}
+label    {text-align: center; 
+display: block; 
+
+width: 8em; 
+padding-right: 1em; }
+input,textarea    {display: block; 
+margin-bottom: 1em;}
+#mysubmiit    {margin-left: 9.5em;}
+#herojobs     {display: none;}    
+
+
+#mobile {display: none;}
+#desktop {display: inline;}
+@media only screen and (max-width: 1024px) {
+body{ margin: 0; background-image: none;}
+#wrapper {width: auto; 
+min-width: 0; 
+ margin: 0;
+padding: 0; 
+box-shadow: none;
+ }
+
+main {padding-top: 1px;}
+
+.details {padding-right:0;}
+h2    {padding-top: .5em;
+        padding-right:0;
+        padding-bottom:0;
+        padding-left: .5em;
+        margin-right: 0.5em;}
+.floatleft {padding-left: 0.5em;
+padding-right: 0.5em;}
+#mobile {display: inline;}
+#desktop {display: none;}
+}
+figure {   float: right;
+margin: 5px;
+padding: 5px;
+background-color: #FFF;
+border: 1px solid #CCC;
+box-shadow: 1px 5px 5px #828282;
+transform: rotate(7deg);
+}
+figcaption { text-align: center;
+font-size: .8em;
+font-style: italic;
+}
+nav     {position: relative;}
+nav ul ul { position: absolute;
+         background-color: #99cc99;
+         padding: 0;
+         text-align: left;
+         display: none; 
+}
+nav ul ul li { border: 10px solid  #00005D;
+          display: block;
+         width: 8em;
+         padding-left: 1em;
+         margin-left: 0; 
+}
+nav li:hover ul {display: block;}
+
+.card {
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  color: grey;
+  font-size: 12px;
+  text-align: center;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+
+ 
+
+
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border:none;
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+form textarea{
+width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border:none;
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+
+}
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+
+
+.logo {
+  width:10%;
+  margin: 0 auto;
+  display: block;
+
+}
+ /*bigger*/
+ @media (min-width: 400px){
+   .logo {
+     width:25%;
+   }
+  }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        <meta charset="utf-8">
+        <meta name="viewport” content="width=device-width, initial-scale=1.0″>
+        <title>IVY TECH Schedule Builder</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@0;1&display=swap" rel="stylesheet">
+        <!-- Load external CSS styles -->
+        <link type= "text/css" link rel="stylesheet" href="styles2.css">
+        <script src="server.js"></script>
+        <script src="modernizr.custom.05819.js"></script>
+       
+    <title>View Details</title>
+</head>
+<body>
+    
+    <div>
+        <header>
+            <h1> IVY TECH College Schedule Builder</h1>
+         <div class="topnav">
+           <a href="index.html">Logout</a>   
+           <a href="contact.html">Contact</a>
+           <a href="add_courses.html">Courses</a>
+           <a href="courseCatalog.html">Course Catalog</a>
+           <a href="studentInfo.html">Student Information</a>
+           <a href="home.html">Home</a>
+     </div>
+        </header>
+
+    </div>
+
+    <h1></h1>  
+    <div>
+        
+    </div>
+    <h2>View Course Details</h2>
+    <script>
+    addEventListener("DOMContentLoaded", async function(){
+        const urlparam = new URLSearchParams(window.location.search)
+        const courseID = urlparam.get('id')
+        console.log(courseID)
+
+        const response = await fetch("https://sdevclassproject.herokuapp.com/api/courses" + courseID);
+        const course = await response.json();
+        console.log(course)
+
+
+        let heading =""
+        heading+=`Welcome to the ${course.course} Page`
+
+
+        let html=""
+        html += `
+                <h2>Course - ${course.course}</h2>
+                <h3>Instructor - ${course.instructor}</h3>
+                <h4>Subject - ${course.subject}</h4>
+                
+                
+                `;
+            
+                document.querySelector("div").innerHTML = html;
+                document.querySelector("h1").innerHTML = heading;
+                
+
+        });
+
+
+
+
+    </script>
+</body>
+</html>

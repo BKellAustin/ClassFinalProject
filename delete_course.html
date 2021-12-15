@@ -1,0 +1,79 @@
+<doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVY TECH Schedule Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!-- Load external CSS styles -->
+    <link type= "text/css" link rel="stylesheet" href="styles2.css">
+    <script src="server.js"></script>
+    <script src="modernizr.custom.05819.js"></script>
+   
+    <title>Delete Course</title>
+</head>
+<body>
+    <header>
+        <h1> IVY TECH College Schedule Builder</h1>
+     <div class="topnav">
+       <a href="index.html">Logout</a>   
+       <a href="contact.html">Contact</a>
+       <a href="add_courses.html">Courses</a>
+       <a href="courseCatalog.html">Course Catalog</a>
+       <a href="studentInfo.html">Student Information</a>
+       <a href="home.html">Home</a>
+ </div>
+       <h1 class="display-1"></h1> 
+    </header>
+    <h2> Delete Course</h2>
+    <form>
+        <select id ="courseDropDown">        
+        </select>
+    
+        <input type="button", value="Delete", id="deleteBtn">
+        <div id="error"></div>
+    </form>
+    <script>
+        
+        addEventListener("DOMContentLoaded", async function() {
+            document.querySelector("#deleteBtn").addEventListener("click", deleteCourse);
+            getAllCourses();
+        });
+    
+        async function getAllCourses() {
+            const response = await fetch("https://sdevclassproject.herokuapp.com/api/courses");
+            if (response.ok) {
+                const courses = await response.json();
+                let html = "";
+                for (let course of courses) {
+                    html += `<option value="${course._id}">${course.course}</option>`; 
+                }
+            document.querySelector("#courseDropDown").innerHTML = html;
+       }
+       
+    }
+
+    async function deleteCourse() {
+   // Get the course ID of the selected course
+   const courseId = document.querySelector("#courseDropDown option:checked").value;
+
+   const response = await fetch("https://sdevclassproject.herokuapp.com/api/courses"+ courseId, {
+      method: "DELETE"
+   });
+
+   if (response.ok) {
+        // Successfully deleted course
+        getAllCourses();
+   }
+   else {
+      document.querySelector("#error").innerHTML = "Cannot delete course.";
+   } 
+}
+    
+    </script>
+</body>
+</html>

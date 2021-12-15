@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseApp</title>
+</head>
+<body>
+    <nav>
+        <a href="/index.html">All Courses</a>
+        <a href="/add_course.html">Add Course</a>
+        <a href="/delete_course.html">Delete Course</a>
+    </nav>
+    <h1>Courses</h1>
+    <ul>
+
+    </ul>
+
+    <script>
+        addEventListener("DOMContentLoaded", async function(){
+            const response = await fetch("http://localhost:3000/api/courses");
+            const course = await response.json();
+
+            let html = "";
+            for(let course of courses){
+                let courseID = course._id;
+                html += `
+                <li>${course.title} - ${course.instructor} - <a href="details.html?id=${songID}">Details</a></li>
+                
+                `;
+            }
+
+        document.querySelector("ul").innerHTML = html;
+
+        });
+    </script>
+	
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	
+	
+    <nav>
+        <a href="index.html">All Songs</a>
+        <a href="add_course.html">Add Song</a>
+    </nav>
+    <form>
+        <div>
+           <label for="title">Title:</label>
+           <input type="text" id="title">
+        </div>
+        <div>
+           <label for="instructor">Artist:</label>
+           <input type="text" id="instructor">
+        </div>
+        <div>
+           <label for="released">Released:</label>
+           <input type="date" id="released">
+        </div>
+        <div>
+           <label for="popularity">Popularity:</label>
+           <input type="number" min="1" max="10" id="popularity">
+        </div>
+        <div>
+           <label for="subject">Subject:</label>
+           <input type="text" id="subject">
+        </div>
+        <div>
+           <input type="button" id="addBtn" value="Add">
+        </div>
+     
+        <div id="error"></div>
+     </form>
+	 <br>
+	 <br>
+	 <br>
+
+     <script>
+         addEventListener("DOMContentLoaded", function(){
+             document.querySelector("#addBtn").addEventListener("click", addCourse);
+         });
+
+         async function addCourse(){
+             //create a course object based on the form filled out..grab data from the form
+             const course = {
+                 title: document.querySelector("#title").value,
+                 artist: document.querySelector("#instructor").value,
+                 releaseDate: document.querySelector("#released").value,
+                 popularity: document.querySelector("#popularity").value,
+                 genre: document.querySelector("#subject").value ?
+                    document.querySelector("#subject").value.split(",") : []
+             };
+
+             const response = await fetch("http://localhost:3000/api/songs",{
+                 method: "POST",
+                 headers:{
+                     "Content-Type" : "application/json"
+                 },
+                 body: JSON.stringify(course)
+
+             });
+
+             if(response.ok){
+                 const results = await response.json();
+                 alert("Added coursewith ID" + results._id);
+
+                 //reset the form after song is successful
+                 document.querySelector("form").reset();
+             }
+
+             else{
+                document.querySelector("#error").innerHTML = "Cannot add course.";
+             }
+         }
+     </script>
+	 
+	 <br>
+	 <br>
+	 <br>
+	 
+	 <form>
+        <select id ="courseDropDown">        
+        </select>
+    
+        <input type="button", value="Delete", id="deleteBtn">
+        <div id="error"></div>
+    </form>
+    <script>
+        
+        addEventListener("DOMContentLoaded", async function() {
+            document.querySelector("#deleteBtn").addEventListener("click", deleteCourse);
+            getAllCourses();
+        });
+    //change fetch to heroko address as per Mr Hamby something like https://dashboard.heroku.com/apps/sdev250finalproject/deploy/github
+        async function getAllCourses() {
+            const response = await fetch("http://localhost:3000/api/songs");
+            if (response.ok) {
+                const courses = await response.json();
+                let html = "";
+                for (let course of courses) {
+                    html += `<option value="${course._id}">${course.title}</option>`; 
+                }
+            document.querySelector("#courseDropDown").innerHTML = html;
+       }
+       
+    }
+
+    async function deleteCourse() {
+   // Get the song ID of the selected song
+   const songId = document.querySelector("#courseDropDown option:checked").value;
+
+   const response = await fetch("http://localhost:3000/api/songs/" + courseId, {
+      method: "DELETE"
+   });
+
+   if (response.ok) {
+        // Successfully deleted song
+        getAllCourses();
+   }
+   else {
+      document.querySelector("#error").innerHTML = "Cannot delete course.";
+   } 
+}
+    
+    </script>
+	<br>
+	<br>
+	<br>
+	
+	<h1></h1>
+    <div>
+
+    </div>
+
+    <script>
+    addEventListener("DOMContentLoaded", async function(){
+        const urlparam = new URLSearchParams(window.location.search)
+        const courseID = urlparam.get('id')
+        console.log(courseID)
+
+        const response = await fetch("http://localhost:3000/api/courses/" + courseID);
+        const song = await response.json();
+        console.log(song)
+
+
+        let heading =""
+        heading+=`Welcome to the ${course.title} Page`
+
+
+        let html=""
+        html += `
+                <h2>Title - ${course.title}</h2>
+                <h3>Artist - ${course.instructor}</h3>
+                <p>Popularity - ${course.popularity}</p>
+                <p>Release Date - ${course.releaseDate}</p>
+                
+                `;
+            
+                document.querySelector("div").innerHTML = html;
+                document.querySelector("h1").innerHTML = heading;
+                
+
+        });
+
+
+
+
+    </script>
+	 
+
+    
+</body>
+</html>
